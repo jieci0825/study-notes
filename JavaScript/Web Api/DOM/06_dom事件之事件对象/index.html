@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: cadetblue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1">
+    <div class="box2">
+      <div class="box3">
+        <button class="btn">点击</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const map = {
+      1: '捕获阶段',
+      2: '事件目标阶段',
+      3: '冒泡阶段',
+    }
+
+    const box1 = document.querySelector('.box1')
+    const box2 = document.querySelector('.box2')
+    const box3 = document.querySelector('.box3')
+    const btn = document.querySelector('.btn')
+
+
+
+    function foo(e) {
+      const name = e.currentTarget.className
+      const stage = map[e.eventPhase]
+      console.log(`${name} 当前处于 ${stage}`)
+    }
+
+
+    box1.addEventListener('click', foo)
+    box2.addEventListener('click', foo, true)
+    box3.addEventListener('click', foo)
+    btn.addEventListener('click', foo)
+  </script>
+</body>
+
+</html>

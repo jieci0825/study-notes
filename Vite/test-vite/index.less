@@ -1,0 +1,17 @@
+:root{
+    --primary-color: red;
+    --secondary-color: blue;
+}
+
+.container {
+    box-sizing: border-box;
+    background-color: lightblue;
+    padding: (100px / 2);
+    margin: 100px / 2;
+    height: 100px;
+    border: 2px solid var(--primary-color);
+    // 响应式布局，宽度自适应
+    //  - 这里就是默认宽度为 30% 的可视窗口宽度，但是这个 30% 的值不是固定的，最小只能为 100px，最大只能为 300px
+    width: clamp(100px, 30vw, 300px);
+    user-select: none;
+}

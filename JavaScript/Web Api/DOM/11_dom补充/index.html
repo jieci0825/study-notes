@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <div id="div" style="width: 100px;height: 100px;background: red;"></div>
+
+  <button id="btn1">按钮1</button>
+  <button id="btn2">按钮2</button>
+
+  <script>
+
+    // 给 div 注册鼠标移出移入事件
+    //  - 移入背景色变成红色，移除变成蓝色
+    div.onmouseenter = function () {
+      this.style.background = 'blue'
+    }
+    div.onmouseleave = function () {
+      this.style.background = 'red'
+    }
+
+
+    // 点击按钮1 ，就模拟触发 div 的鼠标移入事件
+    btn1.onclick = function () {
+      // 创建鼠标事件
+      //  - 参数一传入事件类型
+      //  - 参数二传入配置，这里禁止冒泡
+      const event = new MouseEvent('mouseenter', { bubbles: false })
+      div.dispatchEvent(event)
+    }
+
+    // 点击按钮2 ，就模拟触发 div 的鼠标移出事件
+    btn2.onclick = function () {
+      const event = new MouseEvent('mouseleave', { bubbles: false })
+      div.dispatchEvent(event)
+    }
+  </script>
+</body>
+
+</html>

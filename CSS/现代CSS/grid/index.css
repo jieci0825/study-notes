@@ -1,0 +1,33 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.grid-box {
+	display: grid;
+	border: 1px solid red;
+	grid-template-columns: repeat(3, 100px);
+	grid-template-rows: repeat(3, 100px);
+	grid-template-areas:
+		'a b c'
+		'd e f'
+		'g h i';
+}
+
+.a {
+	grid-area: a;
+	background-color: blue;
+}
+
+.item {
+	/* background-color: var(--c); */
+}

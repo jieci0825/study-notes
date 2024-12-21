@@ -1,0 +1,11 @@
+{
+	"env": {
+		"browser": true
+	},
+	"extends": "standard",
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"rules": {}
+}

@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=document.querySelector(".provinces");(async function(){return await fetch("/api/local").then((e=>e.json()))})().then((a=>{e.innerHTML=a.map((e=>`<li><a href="/detail.html?provinceId=${e.provinceId}&name=${e.areaName}" target="_blank">${e.areaName}</a></li>`)).join("")}))})();

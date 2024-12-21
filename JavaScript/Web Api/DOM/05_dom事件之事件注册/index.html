@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button class="btn">点击</button>
+  <button class="removeBtn">移除</button>
+</body>
+<script>
+  const btn = document.querySelector('.btn')
+  const removeBtn = document.querySelector('.removeBtn')
+
+  // 如果是移除就不能使用匿名函数
+  function btnFunc() {
+    console.log('btn 被点击了')
+
+  }
+  btn.addEventListener('click', btnFunc, {
+    capture: false, // 是否在捕获阶段运行， 默认为 false
+    once: true, // 是否只执行一次，默认为 false
+  })
+</script>
+
+</html>

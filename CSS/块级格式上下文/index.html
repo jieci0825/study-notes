@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            background-color: salmon;
+            border: 4px solid slateblue;
+        }
+
+        .item {
+            /* 浮动导致包含块高度塌陷，宽高为 0 */
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: lightseagreen;
+            margin: 15px;
+        }
+
+        /* 解决一 */
+        /* .container::after {
+            content: '';
+            display: block;
+            clear: both;
+        } */
+
+        /* 解决二，给包含块变为 BFC */
+        /* 因为 BFC 区域会自动高度计算浮动的元素 */
+        .container {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+</body>
+
+</html>

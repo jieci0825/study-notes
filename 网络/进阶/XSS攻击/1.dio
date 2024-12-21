@@ -1,0 +1,76 @@
+<mxfile host="65bd71144e">
+    <diagram id="N5rHhWPkBJqEMzAyPONS" name="第 1 页">
+        <mxGraphModel dx="889" dy="596" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="13" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.users.user;fillColor=#ff1131;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="120" width="46" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.users.user;fillColor=#7FBA42;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="230" width="46" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" style="edgeStyle=none;html=1;" edge="1" parent="1" source="5" target="9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.servers.physical_host;fillColor=#2072B8;" vertex="1" parent="1">
+                    <mxGeometry x="490" y="120" width="27" height="52" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="sketch=0;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.databases.database_mini_2;fillColor=#2072B8;" vertex="1" parent="1">
+                    <mxGeometry x="600" y="124" width="35" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="&lt;b&gt;&amp;lt;script&amp;gt;...&amp;lt;/script&amp;gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="118" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="&lt;b&gt;&amp;lt;script&amp;gt;...&amp;lt;/script&amp;gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="90" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" style="edgeStyle=none;html=1;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="250" y="246" as="sourcePoint"/>
+                        <mxPoint x="484" y="245.95187165775405" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" style="edgeStyle=none;html=1;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="520" y="246" as="sourcePoint"/>
+                        <mxPoint x="594" y="246.15350877192986" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" style="edgeStyle=none;html=1;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="484" y="265.04918032786884" as="sourcePoint"/>
+                        <mxPoint x="246" y="265.9162112932605" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="19" value="" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.servers.physical_host;fillColor=#2072B8;" vertex="1" parent="1">
+                    <mxGeometry x="490" y="227" width="27" height="52" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" style="edgeStyle=none;html=1;" edge="1" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="594" y="264.15350877192986" as="sourcePoint"/>
+                        <mxPoint x="520" y="265" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="20" value="" style="sketch=0;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.databases.database_mini_2;fillColor=#2072B8;" vertex="1" parent="1">
+                    <mxGeometry x="594" y="232" width="35" height="42" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="&lt;b&gt;&amp;lt;script&amp;gt;...&amp;lt;/script&amp;gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="300" y="263" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="&lt;b&gt;正常请求&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="315" y="215" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="&lt;b&gt;正常用户&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="188" y="279" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="&lt;b&gt;恶意用户&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="188" y="170" width="70" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

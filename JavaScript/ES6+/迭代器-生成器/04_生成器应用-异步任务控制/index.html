@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 在 es6 的时候，还没有 async 和 await。async 和 await 是 es7
+    // 怎么解决的问题呢？
+
+    // 大概需要实现下面这样的一个类似效果
+    /* 
+      function* task() {
+        yield 1
+        const resp = yield fetch('http://101.132.72.36:5100/api/local')
+        const result = yield resp.json()
+      }
+    */
+    function* task() {
+      yield 1
+      const resp = yield fetch('http://s.coder-helper.coderjc.cn/api/front/about/author-info')
+      const result = yield resp.json()
+      // 此时输出就可以达到和 async 配合 await 一样的效果了
+      console.log("🚢 ~ 当前打印的内容 ~ result:", result);
+    }
+
+    function run(generatorFunc) {
+      const generator = generatorFunc()
+      let result = generator.next() // 启动任务，开始迭代，得到迭代数据
+
+      handleResult()
+
+      // 对结果进行处理
+      function handleResult() {
+        // 查阅迭代是否完成
+        if (result.done) return
+
+        // 没有完成的话，检测结果是否是 promise
+        if (typeof result.value.then === 'function') {
+          // 迭代的数据是 promise，则等待 promise 完成在执行下一次
+          result.value.then(res => {
+            result = generator.next(res)
+            handleResult()
+          }, err => {
+            // 抛出错误
+            result = generator.throw(err)
+            handleResult()
+          })
+        } else {
+          // 是其他数据，直接调用下一次得到结果，进行更新
+          // console.log(result.value)
+          result = generator.next(result.value)
+          // 再次调用 handleResult 处理结果
+          handleResult()
+        }
+      }
+    }
+
+    run(task)
+  </script>
+</body>
+
+</html>

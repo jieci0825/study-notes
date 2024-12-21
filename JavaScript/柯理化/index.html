@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="./实现柯里化函数.js"></script>
+  <script>
+    function add(a, b, c) {
+      return (a + b) * c;
+    }
+    const fn = curry(add, 2);
+    // (2+3)*5
+    console.log(fn(3, 4))
+    // (2+4)*6
+    console.log(fn(4, 6))
+
+    // 继续固定
+    const fn2 = fn(3);
+    // (2+3)*2
+    console.log(fn2(2))
+  </script>
+</body>
+
+</html>

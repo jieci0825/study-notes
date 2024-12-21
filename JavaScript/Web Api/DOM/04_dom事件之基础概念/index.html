@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box1 {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: slateblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 100px 400px;
+    }
+
+    .box2 {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: seagreen;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .box3 {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: skyblue;
+      position: absolute;
+      right: -200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1">
+    <div class="box2">
+      <div class="box3"></div>
+    </div>
+  </div>
+  <script>
+    const box1 = document.querySelector('.box1')
+    const box2 = document.querySelector('.box2')
+    const box3 = document.querySelector('.box3')
+
+    box1.onclick = function () {
+      console.log('box1 被点击了')
+    }
+
+    box2.onclick = function () {
+      console.log('box2 被点击了')
+    }
+
+    box3.onclick = function () {
+      console.log('box3 被点击了')
+    }
+
+    document.documentElement.onclick = function () {
+      console.log('HTML 被点击了')
+    }
+
+    document.onclick = function () {
+      console.log('document 文档被点击了')
+    }
+  </script>
+</body>
+
+</html>

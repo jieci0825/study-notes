@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 200px;
+            text-align: center;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>
+            <span>a</span>
+            <span>1</span>
+        </p>
+        <p>
+            <span>b</span>
+            <span>2</span>
+        </p>
+    </div>
+
+    <script>
+        const container = document.querySelector('.container')
+        const target = {
+            name: '张三',
+            age: 18
+        }
+
+        const ob = Observer(target)
+
+        function render(obj) {
+            let html = ''
+            Object.keys(obj).forEach(key => {
+                html += `<p>
+                    <span>${key}：</span>
+                    <span>${obj[key]}</span>
+                </p>`
+            })
+            container.innerHTML = html
+        }
+
+        // *********** 新版 ***********
+        function Observer(target) {
+            const ob = new Proxy(target, {
+                get(target, key, receiver) {
+                    return Reflect.get(target, key, receiver)
+                },
+                set(target, key, value, receiver) {
+                    Reflect.set(target, key, value, receiver)
+                    render(target)
+                }
+            })
+            render(ob)
+            return ob
+        }
+
+        // *********** 旧版 ***********
+        // function Observer(target) {
+        //     const ob = {}
+        //     Object.keys(target).forEach(key => {
+        //         Object.defineProperty(ob, key, {
+        //             enumerable: true,
+        //             configurable: true,
+        //             get() {
+        //                 // ob 获取值的 getter
+        //                 return target[key]
+        //             },
+        //             set(newVal) {
+        //                 target[key] = newVal
+        //                 render(target)
+        //             }
+        //         })
+        //     })
+        //     render(ob)
+        //     return ob
+        // }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+:global(.fontSize) {
+  font-size: 16px;
+}
+
+.c1 {
+  color: red;
+}
+
+.c2 {
+  color: green;
+}

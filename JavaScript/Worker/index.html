@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Worker</title>
+  <style>
+    .wrap {
+      margin-top: 50px;
+      position: relative;
+    }
+
+    .box {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: skyblue;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <button>进行复杂运算</button>
+
+  <div class="wrap">
+    <div class="box"></div>
+  </div>
+
+  <script src="./run.js"></script>
+  <script>
+    const btn = document.querySelector('button')
+
+    // type设置为 module 模块化
+    const myWorker = new Worker('./task1.js', { type: "module", name: 'worker1' });
+
+    btn.addEventListener('click', function () {
+      // 向 worker 发送消息，第一个参数是要发送到 worker 的数据
+      myWorker.postMessage(10)
+    })
+
+    // 回调方式通知
+    myWorker.onmessage = function (e) {
+      console.log('外部接收到了计算好的值', e.data)
+    }
+
+
+    // navigator.hardwareConcurrency 记录能开启多少个 worker
+  </script>
+</body>
+
+</html>
