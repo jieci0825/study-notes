@@ -10,7 +10,7 @@
 
 **对于依赖的三种处理方案**，如图：
 
-![image-20241218234547614](./pnpm.assets/image-20241218234547614.png)
+![image-20241218234547614](https://cos.coderjc.cn/blog/image-20241218234547614.png)
 
 第一种方案，只从依赖的角度看，是没有问题的，避免了 D 的冗余，但是如果按照目录来看的话，是无法实现这个结构的，比如 A 这个包依赖了 B 和 C，同时 B 和 C 又依赖了 D 的话，那么使用 npm 安装的目录结构如下：
 
@@ -61,7 +61,7 @@ import B from 'B'
 
 如果有使用过 npm 的经验，在安装了 element-plus 之后，还会安装很多子依赖，比如 lodash、dayjs 等等。我们使用 pnpm 来安装 element-plus 来看一下，目录的结构，如图：
 
-![image-20241219010628661](./pnpm.assets/image-20241219010628661.png)
+![image-20241219010628661](https://cos.coderjc.cn/blog/image-20241219010628661.png)
 
 可以看到，是很简洁的，没有其他子依赖显示在 node_modules 下面。而这个项目根目录下的 node_modules 下面第一级展示的包也叫做**直接依赖项**，也就是可以通过类似 `import { ElButton } from 'element-plus'` 这种方式直接导入的。
 
@@ -69,15 +69,15 @@ import B from 'B'
 
 我们可以打开这个 .pnpm 目录，找到 element-plus 对应的依赖关系，如图：
 
-<img src="./pnpm.assets/image-20241219011029608.png" alt="image-20241219011029608" style="zoom:50%;" />
+<img src="https://cos.coderjc.cn/blog/image-20241219011029608.png" alt="image-20241219011029608" style="zoom:50%;" />
 
 通过这个图片我们不难发现这就是我们在前文提到的**方案二**的目录结构，但是其实不是完全是，在 .pnpm 还是进行了拍平，如图：
 
-![image-20241219011413540](./pnpm.assets/image-20241219011413540.png)
+![image-20241219011413540](https://cos.coderjc.cn/blog/image-20241219011413540.png)
 
 可以看到 dayjs、element-plus、lodash 也都是平级的。经过这一步我们可以初步画出一个关系，如图：
 
-![image-20241219014444437](./pnpm.assets/image-20241219014444437.png)
+![image-20241219014444437](https://cos.coderjc.cn/blog/image-20241219014444437.png)
 
 **.pnpm_store 可以看做是一个全局的存储位置，即你开发的所有项目都可以从这里面共享依赖。**
 
@@ -87,7 +87,7 @@ import B from 'B'
 
 而这种不删除的好处也是显而易见的，如果下次再次安装 element-plus 这种同一个依赖的话，就会直接从 .pnpm_store 中获取，而不会在走一次网络下载。
 
-![image-20241221151320718](./pnpm.assets/image-20241221151320718.png)
+![image-20241221151320718](https://cos.coderjc.cn/blog/image-20241221151320718.png)
 
 通过上面这张图，我们可以发现有一个符号，这个符号就是表示是软连接，只要有这个符号，就一定可以在 .pnpm 目录下找到对应的实体。实体在通过硬链接关联到 .pnpm_store 目录，.pnpm_store 是一个固定的位置。比如 `D:\.pnpm_store`
 

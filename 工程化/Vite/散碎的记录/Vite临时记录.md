@@ -41,7 +41,7 @@ https://cn.vitejs.dev/guide/why.html#slow-server-start
 
 > 因为内容只要改变 hash 就会不一样，而浏览器的缓存机制就是名称一样就去读取缓存，所以为了避免更新了代码内容但是浏览器还是使用旧版的缓存文件，就通过打包后的文件名带上 hash 生成不同的名称避免这一点
 
-## vite 的依赖与预构建
+## vite 的依赖预构建
 
 在处理的过程中，如果说看到了有非绝对路径或者相对路径的引用，它就会尝试开启补全路径
 
@@ -66,13 +66,13 @@ export function add() {
 
 再看看编译后实际运行的时候，是否补全了路径，如图：
 
-![image-20240621202002638](./Vite临时记录.assets/image-20240621202002638.png)
+![image-20240621202002638](https://cos.coderjc.cn/blog/image-20240621202002638.png)
 
 寻找依赖的过程是自当前目录一次向上查找的过程，知道搜寻到根目录或者搜寻到对应依赖为止，但是这种查找规则就会出现一个问题，假设当前工作目录为 my_project，而 my_project 的父级目录为 vue_projects，那么 my_project 下的 node_modules 没有找到对应的依赖，在 vue_projects 下面的 node_modules 下找到了，按照上面的分析，对应的绝对路径应该是 `/vue_projects/node_modules/axios`，但是实际呢？如图：
 
-<img src="./Vite临时记录.assets/image-20240621204107225.png" alt="image-20240621204107225" style="zoom:50%;" />
+<img src="https://cos.coderjc.cn/blog/image-20240621204107225.png" alt="image-20240621204107225" style="zoom:50%;" />
 
-![image-20240621204131111](./Vite临时记录.assets/image-20240621204131111.png)
+![image-20240621204131111](https://cos.coderjc.cn/blog/image-20240621204131111.png)
 
 但是这个路径浏览器肯定是找不到的，所以 vite 是如何解决这个事情的呢，实际 vite 在考虑另外一个问题的时候就解决了这个问题，有些第三方库导出的时候是 commonjs 规范导出的，此时就与 es modules 规范不匹配，vite 就使用了**依赖预构建**的方式解决
 
@@ -113,15 +113,15 @@ export function add() {
 
   - 我们使用 lodash-es 来做一个例子，安装之后正常导入
 
-    ![image-20240621210218478](./Vite临时记录.assets/image-20240621210218478.png)
+    ![image-20240621210218478](https://cos.coderjc.cn/blog/image-20240621210218478.png)
 
   - 看一下网络请求，请求的文件 
 
-    ![image-20240621210236634](./Vite临时记录.assets/image-20240621210236634.png)
+    ![image-20240621210236634](https://cos.coderjc.cn/blog/image-20240621210236634.png)
 
   - 非常的少，实际是有非常多的导出的，如图：
 
-    ![image-20240621210303887](./Vite临时记录.assets/image-20240621210303887.png)
+    ![image-20240621210303887](https://cos.coderjc.cn/blog/image-20240621210303887.png)
 
   - 那么我们把这个针对 lodash-es 的依赖预构建给关掉，vite.config.js 文件配置如下：
 
@@ -135,7 +135,7 @@ export function add() {
 
   - 现在再看一下网络请求了多少文件，如图：
 
-    ![image-20240621210440582](./Vite临时记录.assets/image-20240621210440582.png)
+    ![image-20240621210440582](https://cos.coderjc.cn/blog/image-20240621210440582.png)
 
   - 现在感觉对比是不是就是很明显了，如果还有更多的依赖，那么这个性能开销是显而易见的，**所以这就是原生 es_modules 不敢支持的原因，也是 vite 解决最主要的问题**
 

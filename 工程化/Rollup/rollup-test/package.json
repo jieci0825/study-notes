@@ -1,0 +1,9 @@
+{
+    "type": "module",
+    "scripts": {
+        "build": "rollup -c"
+    },
+    "dependencies": {
+        "vite": "^6.1.1"
+    }
+}
