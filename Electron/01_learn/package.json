@@ -4,7 +4,8 @@
     "description": "",
     "main": "src/index.js",
     "scripts": {
-        "start": "electron ."
+        "start": "electron .",
+        "commit": "sh ./commit.sh"
     },
     "keywords": [],
     "author": "",
