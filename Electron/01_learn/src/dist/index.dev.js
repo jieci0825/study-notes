@@ -59,7 +59,9 @@ ipcMain.on('sendToMain', function (event, message) {
 
 
   port.on('message', function (msg) {
-    console.log('MessageChannel:收到渲染进程的消息：', msg);
+    console.log('MessageChannel:收到渲染进程的消息：', msg); // 发送消息
+
+    port.postMessage('收到消息：' + msg);
   }); // 开启
 
   port.start();

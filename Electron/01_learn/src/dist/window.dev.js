@@ -20,4 +20,8 @@ btn.addEventListener('click', function () {
     type: 'click',
     content: '我是来自渲染进程的消息'
   });
-});
+}); // 监听主进程发送过来的消息
+
+port1.onmessage = function (event) {
+  console.log('收到主进程的消息', event.data);
+};

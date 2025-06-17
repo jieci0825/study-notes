@@ -45,8 +45,11 @@ ipcMain.on('sendToMain', (event, message) => {
     // 监听消息
     port.on('message', msg => {
         console.log('MessageChannel:收到渲染进程的消息：', msg)
+
+        // 发送消息回复给渲染进程
+        port.postMessage('收到消息：' + JSON.stringify(msg))
     })
 
-    // 开启
+    // 开启端口
     port.start()
 })
