@@ -20,7 +20,7 @@ const createWindow = () => {
     // win.webContents.openDevTools()
 
     // * 以工作目录为基准
-    win.loadFile('./src/index.html')
+    win.loadFile('./src/window/window1.html')
 
     return win
 }

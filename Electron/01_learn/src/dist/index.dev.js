@@ -27,15 +27,15 @@ var createWindow = function createWindow() {
   // win.webContents.openDevTools()
   // * 以工作目录为基准
 
-  win.loadFile('./src/index.html');
+  win.loadFile('./src/window/window1.html');
   return win;
 }; // whenReady 生命周期，在 electron 完成初始化后触发
 
 
 app.whenReady().then(function () {
-  var win = createWindow(); // 注册 F12 快捷键来切换开发者工具
+  var win = createWindow(); // 注册 ctrl + F12 快捷键来切换开发者工具
 
-  globalShortcut.register('F3', function () {
+  globalShortcut.register('ctrl+F12', function () {
     if (win.webContents.isDevToolsOpened()) {
       win.webContents.closeDevTools();
     } else {
