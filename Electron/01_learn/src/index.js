@@ -20,7 +20,7 @@ const createWindow = () => {
     // win.webContents.openDevTools()
 
     // * 以工作目录为基准
-    win.loadFile('./src/window/window1.html')
+    win.loadFile('./src/window1/window1.html')
 
     return win
 }
@@ -30,7 +30,7 @@ app.whenReady().then(() => {
     const win = createWindow()
 
     // 注册 ctrl + F12 快捷键来切换开发者工具
-    globalShortcut.register('ctrl+F12', () => {
+    globalShortcut.register('F12', () => {
         if (win.webContents.isDevToolsOpened()) {
             win.webContents.closeDevTools()
         } else {

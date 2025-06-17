@@ -27,7 +27,7 @@ var createWindow = function createWindow() {
   // win.webContents.openDevTools()
   // * 以工作目录为基准
 
-  win.loadFile('./src/window/window1.html');
+  win.loadFile('./src/window1/window1.html');
   return win;
 }; // whenReady 生命周期，在 electron 完成初始化后触发
 
@@ -35,7 +35,7 @@ var createWindow = function createWindow() {
 app.whenReady().then(function () {
   var win = createWindow(); // 注册 ctrl + F12 快捷键来切换开发者工具
 
-  globalShortcut.register('ctrl+F12', function () {
+  globalShortcut.register('F12', function () {
     if (win.webContents.isDevToolsOpened()) {
       win.webContents.closeDevTools();
     } else {
