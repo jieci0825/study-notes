@@ -1,0 +1,345 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-app-region: no-drag;
+}
+
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    min-width: 300px;
+    max-width: 350px;
+    -webkit-app-region: drag;
+    cursor: move;
+}
+
+.digital-clock {
+    text-align: center;
+    margin-bottom: 15px;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.time {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    line-height: 1.1;
+}
+
+.date {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-bottom: 5px;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+.day {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    line-height: 1.2;
+}
+
+.analog-clock {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(5px);
+    margin: 0 auto;
+}
+
+.clock-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.hour-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 60px;
+    background: white;
+    border-radius: 2px;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%);
+    z-index: 3;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.minute-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 80px;
+    background: white;
+    border-radius: 1.5px;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%);
+    z-index: 2;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.second-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 90px;
+    background: #ff6b6b;
+    border-radius: 0.5px;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%);
+    z-index: 1;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.hour-marks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hour-mark {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    width: 4px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 2px;
+    transform: translateX(-50%);
+    transform-origin: center 110px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.minute-marks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.minute-mark {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 1.5px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 1px;
+    transform: translateX(-50%);
+    transform-origin: center 110px;
+}
+
+.clock-numbers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.number {
+    position: absolute;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    text-align: center;
+}
+
+.mode-toggle {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    color: white;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-app-region: no-drag;
+    position: relative;
+    z-index: 999;
+}
+
+.mode-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.timezone-info {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    text-align: center;
+}
+
+/* 挂件专用样式 */
+.clock-container:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
+
+/* 拖动状态样式 */
+.clock-container:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+}
+
+/* 拖动区域标识 */
+.drag-hint {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.clock-container:hover .drag-hint {
+    opacity: 1;
+}
+
+/* 拖动状态的额外样式 */
+.clock-container.dragging {
+    transform: scale(0.98) !important;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.8) !important;
+    cursor: grabbing !important;
+}
+
+.clock-container.dragging .drag-hint {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* 紧凑模式 */
+@media (max-height: 600px) {
+    .analog-clock {
+        width: 180px;
+        height: 180px;
+    }
+
+    .time {
+        font-size: 1.9rem;
+    }
+
+    .clock-container {
+        gap: 12px;
+        padding: 20px;
+        min-width: 260px;
+    }
+
+    .digital-clock {
+        min-height: 100px;
+    }
+
+    .hour-hand {
+        height: 50px;
+    }
+
+    .minute-hand {
+        height: 65px;
+    }
+
+    .second-hand {
+        height: 70px;
+    }
+
+    .hour-mark {
+        transform-origin: center 90px;
+        height: 22px;
+        width: 3px;
+    }
+
+    .minute-mark {
+        transform-origin: center 90px;
+        height: 12px;
+        width: 1px;
+    }
+}
+
+/* 超小挂件模式 */
+@media (max-width: 320px) {
+    .clock-container {
+        min-width: 240px;
+        padding: 15px;
+    }
+
+    .time {
+        font-size: 1.7rem;
+    }
+
+    .analog-clock {
+        width: 160px;
+        height: 160px;
+    }
+
+    .digital-clock {
+        min-height: 90px;
+    }
+
+    .hour-mark {
+        height: 18px;
+        width: 2.5px;
+        transform-origin: center 80px;
+    }
+
+    .minute-mark {
+        height: 10px;
+        width: 1px;
+        transform-origin: center 80px;
+    }
+}
