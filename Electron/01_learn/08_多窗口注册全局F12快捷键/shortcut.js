@@ -9,7 +9,7 @@ function registerGlobalShortcut(key) {}
 // 添加窗口到管理列表
 function addWindow(win) {
     windows.push(win)
-    
+
     // 窗口关闭时从数组中移除
     win.on('closed', () => {
         windows = windows.filter(w => w !== win)
@@ -25,7 +25,7 @@ function registerDevToolsShortcut() {
         globalShortcut.register('F12', () => {
             // 获取当前焦点窗口
             const focusedWindow = BrowserWindow.getFocusedWindow()
-            
+
             if (focusedWindow) {
                 console.log('----', focusedWindow.idxx)
                 if (focusedWindow.webContents.isDevToolsOpened()) {
